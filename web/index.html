@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SportShield AI — AI-powered digital asset protection for sports organizations. Detect unauthorized use of your media content instantly.">
+  <meta name="theme-color" content="#080B14">
+  <title>SportShield AI — Protect Every Play</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: #080B14;
+      overflow: hidden;
+    }
+    #loading-screen {
+      position: fixed;
+      inset: 0;
+      background: #080B14;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      gap: 24px;
+    }
+    .logo-text {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 32px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #00D4FF, #7B2FFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 2px;
+    }
+    .loader-bar {
+      width: 200px;
+      height: 3px;
+      background: #1E2D45;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .loader-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #00D4FF, #7B2FFF);
+      animation: load 1.5s ease-in-out infinite;
+      border-radius: 2px;
+    }
+    @keyframes load {
+      0% { width: 0%; transform: translateX(0); }
+      50% { width: 70%; }
+      100% { width: 100%; transform: translateX(200px); }
+    }
+    .tagline {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: #8892A4;
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="logo-text">⚡ SPORTSHIELD AI</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+    <div class="tagline">SHIELD EVERY FRAME · PROTECT EVERY PLAY</div>
+  </div>
+  <script>
+    window.addEventListener('flutter-first-frame', function () {
+      const loader = document.getElementById('loading-screen');
+      if (loader) {
+        loader.style.opacity = '0';
+        loader.style.transition = 'opacity 0.5s ease';
+        setTimeout(() => loader.remove(), 500);
+      }
+    });
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
